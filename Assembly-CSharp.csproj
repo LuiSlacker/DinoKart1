@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BtnComenzarController.cs" />
+     <Compile Include="Assets\Scripts\BtnController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Coche1Controller.cs" />
      <Compile Include="Assets\Scripts\Coche2Controller.cs" />

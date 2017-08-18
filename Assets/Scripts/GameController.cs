@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 
 	public Text player1Result;
 	public Text player2Result;
+	public GameObject btn;
 
 	private Coche1Controller coche1Controller;
 	private Coche2Controller coche2Controller;
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour {
 
 		GameObject coche1 = GameObject.Find("Coche1");
 		GameObject coche2 = GameObject.Find("Coche2");
+
 		coche1Controller = coche1.GetComponent<Coche1Controller>();
 		coche2Controller = coche2.GetComponent<Coche2Controller>();
 
@@ -30,10 +32,12 @@ public class GameController : MonoBehaviour {
 		if (coche1Controller.barreaCount > 3) {
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
+			btn.SetActive (true);
 		}
 		if (coche2Controller.barreaCount > 3) {
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";
+			btn.SetActive (true);
 		}
 
 	}
