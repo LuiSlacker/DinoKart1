@@ -52,8 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BtnComenzarController.cs" />
-     <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\CocheController.cs" />
+     <Compile Include="Assets\Scripts\Coche1CameraController.cs" />
+     <Compile Include="Assets\Scripts\Coche1Controller.cs" />
+     <Compile Include="Assets\Scripts\Coche2Controller.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

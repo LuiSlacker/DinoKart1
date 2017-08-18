@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 167158695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.517, y: 0, z: 0.489}
+  m_LocalPosition: {x: 0.7, y: 0, z: 0.489}
   m_LocalScale: {x: 1, y: 1, z: 0.43172678}
   m_Children: []
   m_Father: {fileID: 679981954}
@@ -178,8 +178,9 @@ GameObject:
   - component: {fileID: 262032474}
   - component: {fileID: 262032473}
   - component: {fileID: 262032472}
+  - component: {fileID: 262032477}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Coche1Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +220,7 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.5
     width: 1
     height: 1
   near clip plane: 0.3
@@ -248,13 +249,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262032471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.20637494, y: 0, z: 0, w: 0.97847295}
+  m_LocalPosition: {x: 0, y: 0.93, z: -2.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.82, y: 0, z: 0}
+--- !u!114 &262032477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 262032471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7663132e5f4604a239ab9444657b5df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 679981949}
 --- !u!1 &304512123
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 304512123}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.517, y: 0, z: -0.502}
+  m_LocalPosition: {x: 0.7, y: 0, z: -0.502}
   m_LocalScale: {x: 1, y: 1, z: 0.43172678}
   m_Children: []
   m_Father: {fileID: 679981954}
@@ -336,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 476626777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.498, y: 0, z: -0.5019999}
+  m_LocalPosition: {x: -0.7, y: 0, z: -0.5019999}
   m_LocalScale: {x: 1, y: 1, z: 0.43172678}
   m_Children: []
   m_Father: {fileID: 679981954}
@@ -394,7 +407,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486536639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.517, y: 0, z: 0.5}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 0.43172678}
   m_Children: []
   m_Father: {fileID: 679981954}
@@ -443,7 +456,7 @@ GameObject:
   - component: {fileID: 679981950}
   - component: {fileID: 679981955}
   m_Layer: 0
-  m_Name: Coche
+  m_Name: Coche1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +490,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d66e5f194f6847c39bed95eae2bb2e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

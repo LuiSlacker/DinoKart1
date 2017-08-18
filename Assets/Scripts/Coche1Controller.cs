@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CocheController : MonoBehaviour {
+public class Coche1Controller : MonoBehaviour {
 
 	public WheelCollider LDI, LDD, LTI, LTD;
 	public float FuerzaDeMotor;
