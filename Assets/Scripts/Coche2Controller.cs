@@ -16,7 +16,7 @@ public class Coche2Controller : MonoBehaviour {
 	void Update () {
 		chancleta = Input.GetAxis("Player2Vertical");
 		cabrilla = Input.GetAxis("Player2Horizontal");
-		frenoDeMano = Input.GetAxisRaw("Jump");
+		frenoDeMano = Input.GetAxisRaw("Player2Jump");
 		LDI.motorTorque = chancleta * FuerzaDeMotor * Time.deltaTime;
 		LDD.motorTorque = chancleta * FuerzaDeMotor * Time.deltaTime;
 		LDD.steerAngle = cabrilla * rotacionMaximaDeLlantas;
