@@ -12,6 +12,8 @@ public class Coche1Controller : MonoBehaviour {
 	public float rotacionMaximaDeLlantas;
 	public float FuerzaDeFrenoDeMano;
 
+	public int barreaCount = 0;
+
 	// Update is called once per frame
 	void Update () {
 		chancleta = Input.GetAxis("Vertical");
@@ -32,5 +34,12 @@ public class Coche1Controller : MonoBehaviour {
 			LTD.brakeTorque = 0f;
 		}
 
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.CompareTag (barreaCount+1+"")) {
+			barreaCount++;
+			Debug.Log (barreaCount);
+		}
 	}
 }
