@@ -19,7 +19,7 @@ public class Coche2Controller : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
-		rb.centerOfMass = new Vector3 (0,-3.5f,0); //com.transform.position;
+		//rb.centerOfMass = new Vector3 (0,-3.5f,0); //com.transform.position;
 	}
 
 	// Update is called once per frame
