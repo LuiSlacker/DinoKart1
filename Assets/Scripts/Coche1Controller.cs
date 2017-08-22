@@ -13,6 +13,12 @@ public class Coche1Controller : MonoBehaviour {
 	public float FuerzaDeFrenoDeMano;
 
 	public int barreaCount = 0;
+	public Rigidbody rb;
+
+	void Start() {
+		rb = GetComponent<Rigidbody>();
+		rb.centerOfMass = new Vector3 (0,-0.8f, 0);
+	}
 
 	// Update is called once per frame
 	void Update () {
