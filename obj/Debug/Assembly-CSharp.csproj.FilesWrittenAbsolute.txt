@@ -21,3 +21,4 @@
 /Users/petulantslacker/Documents/uninorte/Unity/DinoKart1/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/petulantslacker/Documents/uninorte/Unity/DinoKart1/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/petulantslacker/Documents/uninorte/Unity/DinoKart1/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/petulantslacker/Documents/uninorte/Unity/DinoKart1/Temp/bin/Debug/Facebook.Unity.Settings.dll

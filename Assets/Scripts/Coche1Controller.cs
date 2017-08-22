@@ -14,6 +14,14 @@ public class Coche1Controller : MonoBehaviour {
 
 	public int barreaCount = 0;
 
+	public Vector3 com;
+	public Rigidbody rb;
+
+	void Start() {
+		rb = GetComponent<Rigidbody>();
+		rb.centerOfMass = com;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		chancleta = Input.GetAxis("Vertical");
