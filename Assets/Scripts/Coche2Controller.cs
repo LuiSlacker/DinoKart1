@@ -14,13 +14,6 @@ public class Coche2Controller : MonoBehaviour {
 
 	public int barreaCount = 0;
 
-	public GameObject com;
-	public Rigidbody rb;
-
-	void Start() {
-		rb = GetComponent<Rigidbody>();
-		//rb.centerOfMass = new Vector3 (0,-3.5f,0); //com.transform.position;
-	}
 
 	// Update is called once per frame
 	void Update () {
