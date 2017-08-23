@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour {
 	public GameObject coche1;
 	public GameObject coche2;
 
+	public GameObject audioCTRL;
+
+	private AudioSource audioSource;
+
 	private Coche1Controller coche1Controller;
 	private Coche2Controller coche2Controller;
 	private float startTime;
@@ -28,6 +32,8 @@ public class GameController : MonoBehaviour {
 		coche2Controller = coche2.GetComponent<Coche2Controller>();
 
 		startTime = Time.time;
+
+		audioSource = audioCTRL.GetComponent<AudioSource> ();
 	}
 
 	void Update () {
@@ -35,7 +41,7 @@ public class GameController : MonoBehaviour {
 
 		float minutes = Mathf.Floor(guiTime / 60);
 		float seconds = guiTime % 60;
-		float fraction = (guiTime * 100) % 100;
+		float fraction = (guiTime * 1000) % 1000;
 
 		if (!isFinished) time.text = string.Format ("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
 
@@ -44,12 +50,14 @@ public class GameController : MonoBehaviour {
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
+			audioSource.Stop();
 		}
 		if (coche2Controller.barreaCount > 3) {
 			isFinished = true;
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
+			audioSource.Stop();
 		}
 
 	}
