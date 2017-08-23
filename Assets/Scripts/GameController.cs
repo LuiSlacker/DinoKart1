@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	private Coche1Controller coche1Controller;
 	private Coche2Controller coche2Controller;
 	private float startTime;
+	private bool isFinished;
 
 	// Use this for initialization
 	void Start () {
@@ -29,26 +30,23 @@ public class GameController : MonoBehaviour {
 		startTime = Time.time;
 	}
 
-	// Update is called once per frame
 	void Update () {
-		//float t = Time.time;
-
-		//time.text = "Time: " + Mathf.Round(t * 1000.0f) / 1000.0f;;
-
 		float guiTime = Time.time - startTime;
 
 		float minutes = Mathf.Floor(guiTime / 60);
 		float seconds = guiTime % 60;
 		float fraction = (guiTime * 100) % 100;
 
-		time.text = string.Format ("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+		if (!isFinished) time.text = string.Format ("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
 
 		if (coche1Controller.barreaCount > 3) {
+			isFinished = true;
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
 		}
 		if (coche2Controller.barreaCount > 3) {
+			isFinished = true;
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
