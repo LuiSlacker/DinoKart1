@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Coche2Controller : MonoBehaviour {
 
@@ -11,13 +12,23 @@ public class Coche2Controller : MonoBehaviour {
 	public float frenoDeMano;
 	public float rotacionMaximaDeLlantas;
 	public float FuerzaDeFrenoDeMano;
+	public GameObject gameControllerObject;
+	public GameObject secondVueltaPanel;
 
 	public int barreraCount = -1;
 	public Rigidbody rb;
+	public Text firstVuelta;
+	public Text secondVuelta;
+
+	private float startTime;
+	private GameController gameController;
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
 		rb.centerOfMass = new Vector3 (0,-0.8f, 0);
+
+		gameController = gameControllerObject.GetComponent<GameController>();
+		startTime = Time.time;
 	}
 
 
@@ -41,6 +52,23 @@ public class Coche2Controller : MonoBehaviour {
 			LTD.brakeTorque = 0f;
 		}
 
+		updateTime();
+	}
+
+	void updateTime() {
+		float guiTime = Time.time - startTime;
+
+		float minutes = Mathf.Floor(guiTime / 60);
+		float seconds = guiTime % 60;
+		float fraction = (guiTime * 1000) % 1000;
+
+		if (!gameController.isFinished) {
+			if (barreraCount < 3) {
+				firstVuelta.text = string.Format ("1st vuelta: {0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+			} else {
+				secondVuelta.text = string.Format ("2nd vuelta: {0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+			}
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -48,6 +76,10 @@ public class Coche2Controller : MonoBehaviour {
 		if (other.gameObject.CompareTag (expectedBarrera + "")) {
 			barreraCount++;
 			Debug.Log (barreraCount);
+		}
+		if (barreraCount == 3) {
+			secondVueltaPanel.SetActive (true);
+			startTime = Time.time; // reset Timer for second vuelta
 		}
 	}
 }
