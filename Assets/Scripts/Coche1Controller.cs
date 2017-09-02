@@ -12,7 +12,7 @@ public class Coche1Controller : MonoBehaviour {
 	public float rotacionMaximaDeLlantas;
 	public float FuerzaDeFrenoDeMano;
 
-	public int barreaCount = 0;
+	public int barreraCount = -1;
 	public Rigidbody rb;
 
 	void Start() {
@@ -43,9 +43,10 @@ public class Coche1Controller : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.CompareTag (barreaCount+1+"")) {
-			barreaCount++;
-			Debug.Log (barreaCount);
+		int expectedBarrera = (barreraCount + 1) % 4;
+		if (other.gameObject.CompareTag (expectedBarrera + "")) {
+			barreraCount++;
+			Debug.Log (barreraCount);
 		}
 	}
 }

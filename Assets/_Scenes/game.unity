@@ -1105,8 +1105,8 @@ GameObject:
   - component: {fileID: 318004879}
   - component: {fileID: 318004878}
   m_Layer: 0
-  m_Name: Barrera4
-  m_TagString: 4
+  m_Name: Barrera3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   frenoDeMano: 100
   rotacionMaximaDeLlantas: 25
   FuerzaDeFrenoDeMano: 10
-  barreaCount: 0
+  barreraCount: -1
   rb: {fileID: 678670250}
 --- !u!4 &678670249
 Transform:
@@ -1648,8 +1648,8 @@ GameObject:
   - component: {fileID: 729946544}
   - component: {fileID: 729946543}
   m_Layer: 0
-  m_Name: Barrera2
-  m_TagString: 2
+  m_Name: Barrera1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2778,8 +2778,8 @@ GameObject:
   - component: {fileID: 1547079199}
   - component: {fileID: 1547079198}
   m_Layer: 0
-  m_Name: Barrera1
-  m_TagString: 1
+  m_Name: Barrera0
+  m_TagString: 0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3610,7 +3610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794243726}
   m_Layer: 0
-  m_Name: Barreas
+  m_Name: Barreras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3888,8 +3888,8 @@ GameObject:
   - component: {fileID: 2006606367}
   - component: {fileID: 2006606366}
   m_Layer: 0
-  m_Name: Barrera3
-  m_TagString: 3
+  m_Name: Barrera2
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

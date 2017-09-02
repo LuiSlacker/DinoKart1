@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 
 		if (!isFinished) time.text = string.Format ("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
 
-		if (coche1Controller.barreaCount > 3) {
+		if (coche1Controller.barreraCount == 7) {
 			isFinished = true;
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
