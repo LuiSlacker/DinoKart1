@@ -14,11 +14,16 @@ public class Coche1Controller : MonoBehaviour {
 	public float FuerzaDeFrenoDeMano;
 	public GameObject gameControllerObject;
 	public GameObject secondVueltaPanel;
+	public GameObject barrera0;
+	public GameObject barrera1;
+	public GameObject barrera2;
+	public GameObject barrera3;
 
 	public int barreraCount = -1;
 	public Rigidbody rb;
 	public Text firstVuelta;
 	public Text secondVuelta;
+	public float distanceToNextBarrera;
 
 	private float startTime;
 	private GameController gameController;
@@ -52,6 +57,7 @@ public class Coche1Controller : MonoBehaviour {
 		}
 
 		updateTime ();
+		updateDistanceToNextBarrera();
 	}
 
 	void updateTime() {
@@ -68,6 +74,27 @@ public class Coche1Controller : MonoBehaviour {
 				secondVuelta.text = string.Format ("2nd vuelta: {0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
 			}
 		}
+	}
+
+	void updateDistanceToNextBarrera() {
+		int nextBarrera = barreraCount + 1;
+		Vector3 nextBarreraPosition = new Vector3(0, 0, 0);
+		switch (nextBarrera) {
+		case 0:
+			nextBarreraPosition = barrera0.transform.position;
+			break;
+		case 1:
+			nextBarreraPosition = barrera1.transform.position;
+			break;
+		case 2:
+			nextBarreraPosition = barrera2.transform.position;
+			break;
+		case 3:
+			nextBarreraPosition = barrera3.transform.position;
+			break;
+		}
+
+		distanceToNextBarrera = Vector3.Distance(nextBarreraPosition, transform.position);
 	}
 
 	void OnTriggerEnter(Collider other) {
