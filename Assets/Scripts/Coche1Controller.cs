@@ -61,7 +61,7 @@ public class Coche1Controller : MonoBehaviour {
 		if (isAI) {
 			Vector3 realtiveVector = transform.InverseTransformPoint (nodes [currentNode].position);
 			newSteer = (realtiveVector.x / realtiveVector.magnitude) * rotacionMaximaDeLlantas;
-			motorSpeed = 0.5f * FuerzaDeMotor * Time.deltaTime;
+			motorSpeed = 0.8f * FuerzaDeMotor * Time.deltaTime;
 		} else {
 			newSteer = cabrilla * rotacionMaximaDeLlantas;
 			motorSpeed = chancleta * FuerzaDeMotor * Time.deltaTime;
