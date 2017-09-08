@@ -25,7 +25,6 @@ public class Coche1Controller : MonoBehaviour {
 	public Text secondVuelta;
 	public float distanceToNextBarrera;
 	public Transform path;
-	public bool isAI;
 
 
 	private float startTime;
@@ -58,7 +57,7 @@ public class Coche1Controller : MonoBehaviour {
 
 		float newSteer;
 		float motorSpeed;
-		if (isAI) {
+		if (BtnComenzarController.isAI) {
 			Vector3 realtiveVector = transform.InverseTransformPoint (nodes [currentNode].position);
 			newSteer = (realtiveVector.x / realtiveVector.magnitude) * rotacionMaximaDeLlantas;
 			motorSpeed = 0.8f * FuerzaDeMotor * Time.deltaTime;
