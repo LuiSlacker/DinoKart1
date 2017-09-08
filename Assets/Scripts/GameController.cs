@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour {
 			btn.SetActive (true);
 			audioSource.Stop();
 		}
-		if (coche2Controller.barreraCount > 7) {
+		if (coche2Controller.barreraCount == 7) {
 			isFinished = true;
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";

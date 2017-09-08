@@ -24,9 +24,16 @@ public class Coche1Controller : MonoBehaviour {
 	public Text firstVuelta;
 	public Text secondVuelta;
 	public float distanceToNextBarrera;
+	public Transform path;
+	public bool isAI;
+
 
 	private float startTime;
 	private GameController gameController;
+
+	private List<Transform> nodes = new List<Transform> ();
+	private int currentNode = 0;
+
 
 	void Start() {
 		rb = GetComponent<Rigidbody>();
@@ -34,17 +41,38 @@ public class Coche1Controller : MonoBehaviour {
 
 		gameController = gameControllerObject.GetComponent<GameController>();
 		startTime = Time.time;
-	}
 
-	// Update is called once per frame
+		Transform[] pathTransforms = path.GetComponentsInChildren<Transform> ();
+
+		for (int i = 0; i < pathTransforms.Length; i++) {
+			if (pathTransforms[i] != path.transform) {
+				nodes.Add (pathTransforms[i]);
+			}
+		}
+	}
+		
 	void Update () {
 		chancleta = Input.GetAxis("Vertical");
 		cabrilla = Input.GetAxis("Horizontal");
 		frenoDeMano = Input.GetAxisRaw("Jump");
-		LDI.motorTorque = chancleta * FuerzaDeMotor * Time.deltaTime;
-		LDD.motorTorque = chancleta * FuerzaDeMotor * Time.deltaTime;
-		LDD.steerAngle = cabrilla * rotacionMaximaDeLlantas;
-		LDI.steerAngle = cabrilla * rotacionMaximaDeLlantas;
+
+		float newSteer;
+		float motorSpeed;
+		if (isAI) {
+			Vector3 realtiveVector = transform.InverseTransformPoint (nodes [currentNode].position);
+			newSteer = (realtiveVector.x / realtiveVector.magnitude) * rotacionMaximaDeLlantas;
+			motorSpeed = 0.5f * FuerzaDeMotor * Time.deltaTime;
+		} else {
+			newSteer = cabrilla * rotacionMaximaDeLlantas;
+			motorSpeed = chancleta * FuerzaDeMotor * Time.deltaTime;
+		}
+
+		LDI.steerAngle = newSteer;
+		LDD.steerAngle = newSteer;
+
+		LDI.motorTorque = motorSpeed;
+		LDD.motorTorque = motorSpeed;
+
 
 		if (frenoDeMano > 0f)
 		{
@@ -57,8 +85,9 @@ public class Coche1Controller : MonoBehaviour {
 		}
 
 		updateTime ();
-		updateDistanceToNextBarrera();
-	}
+		updateDistanceToNextBarrera ();
+		checkDistanceToAINode ();
+	}		
 
 	void updateTime() {
 		float guiTime = Time.time - startTime;
@@ -72,6 +101,16 @@ public class Coche1Controller : MonoBehaviour {
 				firstVuelta.text = string.Format ("1st vuelta: {0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
 			} else {
 				secondVuelta.text = string.Format ("2nd vuelta: {0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+			}
+		}
+	}
+
+	void checkDistanceToAINode() {
+		if (Vector3.Distance(transform.position, nodes[currentNode].transform.position) < 20.0f) {
+			if (currentNode == nodes.Count - 1) {
+				currentNode = 0;
+			} else {
+				currentNode++;
 			}
 		}
 	}

@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Coche2Controller.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\MuteBtnController.cs" />
+     <Compile Include="Assets\Scripts\Path.cs" />
      <Compile Include="Assets\Scripts\TireController.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/petulantslacker/Documents/uninorte/Unity/DinoKart1/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
