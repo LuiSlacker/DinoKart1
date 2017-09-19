@@ -36,19 +36,21 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-		if (coche1Controller.barreraCount == 7) {
+		if (coche1Controller.barreraCount == 1) {
 			isFinished = true;
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
 			audioSource.Stop();
+			saveWinner("Player1");
 		}
-		if (coche2Controller.barreraCount == 7) {
+		if (coche2Controller.barreraCount == 1) {
 			isFinished = true;
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
 			audioSource.Stop();
+			saveWinner("Player2");
 		}
 		rankPlayers();
 	}
@@ -66,5 +68,11 @@ public class GameController : MonoBehaviour {
 		}
 			
 		//Debug.Log(player1RankValue + "         " + player2RankValue);
+	}
+
+	void saveWinner(string winner) {
+		// TODO set proper time
+		Game game = new Game (winner, 1);
+		SaveLoad.save (game);
 	}
 }

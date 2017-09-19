@@ -14,4 +14,8 @@ public class BtnComenzarController : MonoBehaviour {
 	public void onToggleValueChanged() {
 		isAI = !isAI;
 	}
+
+	public void onBtnHighscoreClick() {
+		SceneManager.LoadScene ("highscore");
+	}
 }
