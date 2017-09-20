@@ -78,7 +78,7 @@ public class Coche2Controller : MonoBehaviour {
 	}
 
 	void updateDistanceToNextBarrera() {
-		int nextBarrera = barreraCount + 1;
+		int nextBarrera = (barreraCount + 1) % 4;
 		Vector3 nextBarreraPosition = new Vector3(0, 0, 0);
 		switch (nextBarrera) {
 		case 0:

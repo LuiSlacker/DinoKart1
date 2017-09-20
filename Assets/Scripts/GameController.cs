@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour {
 	private Coche2Controller coche2Controller;
 	private float startTime;
 	public bool isFinished;
+	private bool isSaved;
 
 	// Use this for initialization
 	void Start () {
@@ -36,21 +37,21 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-		if (coche1Controller.barreraCount == 1) {
+		if (coche1Controller.barreraCount == 7) {
 			isFinished = true;
 			player1Result.text = "YOU WON!";
 			player2Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
 			audioSource.Stop();
-			saveWinner("Player1");
+			saveWinner("Player1"); // right now a lot af game objects are saved because this function is within update
 		}
-		if (coche2Controller.barreraCount == 1) {
+		if (coche2Controller.barreraCount == 7) {
 			isFinished = true;
 			player2Result.text = "YOU WON!";
 			player1Result.text = "YOU LOOSE!";
 			btn.SetActive (true);
 			audioSource.Stop();
-			saveWinner("Player2");
+			saveWinner("Player2"); // right now a lot af game objects are saved because this function is within update
 		}
 		rankPlayers();
 	}
@@ -71,8 +72,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	void saveWinner(string winner) {
-		// TODO set proper time
-		Game game = new Game (winner, 1);
-		SaveLoad.save (game);
+		if (!isSaved) {
+			// TODO set proper time
+			Game game = new Game (winner, 1);
+			SaveLoad.save (game);
+			isSaved = true;
+		}
 	}
 }
